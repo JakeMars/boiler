@@ -29,6 +29,16 @@ var gulp 			= require('gulp'),
 
 // SASS to CSS
 
+gulp.task('sass', function() {
+	gulp.src([
+		'./assets/sass/main.scss'
+	])
+
+	.pipe(sass({ sourceComments: 'map'}))
+	.pipe(gulp.dest('./assets/css'));
+
+});
+
 gulp.task('css', function() {
 	gulp.src([
 		'./assets/css/working/normalize.css',
@@ -40,6 +50,8 @@ gulp.task('css', function() {
 		.pipe(gulp.dest('./assets/css'));
 
 });
+
+
 
 
 // ------------------------------------------------
@@ -59,4 +71,4 @@ gulp.task('scripts', function(){
 
 
 
-gulp.task('default', ['css', 'scripts']);
+gulp.task('default', ['css', 'scripts', 'sass']);
